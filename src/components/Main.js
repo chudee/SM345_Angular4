@@ -4,6 +4,8 @@ import classNames from 'classnames';
 import { withStyles } from 'material-ui/styles';
 import { Typography } from 'material-ui';
 
+import Dashboard from 'components/Dashboard';
+
 const styles = theme => ({
     content: {
         width: '100%',
@@ -37,9 +39,7 @@ class Main extends Component {
 
         return (
             <main className={classNames(classes.content, this.props.open && classes.contentShift)}>
-                <Typography type="body1" noWrap>
-                    {'You think water moves fast? You should see ice.'}
-                </Typography>
+                <Dashboard/>
             </main>
         );
     }
