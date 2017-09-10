@@ -2,6 +2,16 @@
 
 This README would normally document whatever steps are necessary to get your application up and running.
 
+## React View 
+
+## 실행방법
+
+## 1. 의존성 설치
+yarn or npm install
+
+## 2. 실행
+yarn start or npm start
+
 ### What is this repository for? ###
 
 * Quick summary
