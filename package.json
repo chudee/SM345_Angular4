@@ -6,6 +6,8 @@
     "cross-env": "^5.0.5",
     "material-ui": "next",
     "material-ui-icons": "next",
+    "muicss": "^0.9.25",
+    "normalize.css": "^7.0.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-router-dom": "^4.2.2",
