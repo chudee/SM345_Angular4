@@ -6,7 +6,7 @@ class LoginContainer extends Component {
     render() {   
         return (
             <LoginWrapper>
-                <Login/>
+                <Login handleAuth={this.props.handleAuth} />
             </LoginWrapper>
         );
     }

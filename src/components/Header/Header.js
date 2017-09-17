@@ -37,18 +37,18 @@ const Header = ({ classes, isDrawer, handleDrawerOpen }) => {
             position='fixed'
         >
              <Toolbar disableGutters={!isDrawer}>
-                    <IconButton
-                        color="contrast"
-                        aria-label="open drawer"
-                        onClick={handleDrawerOpen}
-                        className={classNames(classes.menuButton, isDrawer && classes.hide)}
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                    <Typography type="title" color="inherit" noWrap>
-                        대시보드
-                    </Typography>
-                </Toolbar>
+                <IconButton
+                    color="contrast"
+                    aria-label="open drawer"
+                    onClick={handleDrawerOpen}
+                    className={classNames(classes.menuButton, isDrawer && classes.hide)}
+                >
+                    <MenuIcon />
+                </IconButton>
+                <Typography type="title" color="inherit" noWrap>
+                    SM345
+                </Typography>
+            </Toolbar>
         </AppBar>
     );
 };

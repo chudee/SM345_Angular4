@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withStyles } from 'material-ui/styles';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 
 import { 
     DashboardContainer, 
@@ -15,11 +15,12 @@ import {
 
 const styles = theme => ({
     content: {
-        width: `calc(100% - 72px)`,
+        // width: `calc(100% - 72px)`,
+        width: `calc(100% - 120px)`,
         marginLeft: 72,
         flexGrow: 1,
-        // backgroundColor: theme.palette.background.default,
-        backgroundColor: 'darkturquoise',
+        backgroundColor: theme.palette.background.default,
+        // backgroundColor: 'darkturquoise',
         padding: theme.spacing.unit * 3,
         transition: theme.transitions.create(['width', 'margin'], {
             easing: theme.transitions.easing.sharp,
@@ -36,7 +37,8 @@ const styles = theme => ({
     },
     contentShift: {
         marginLeft: 240,
-        width: `calc(100% - 240px)`,
+        // width: `calc(100% - 240px)`,
+        width: `calc(100% - 288px)`,
         transition: theme.transitions.create(['width', 'margin'], {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.enteringScreen,
@@ -44,12 +46,10 @@ const styles = theme => ({
     }
 });
 
-const Main = ({ classes, isDrawer }) => {
+const Main = ({ classes, isDrawer, title, handleDrawerOpen }) => {
     return (
         <div className={classNames(classes.content, isDrawer && classes.contentShift)}>
-            {/* <Route exact path="/" component={DashboardContainer} /> */}
-            <Route path="/" />
-            <Route path="/dashboard" component={DashboardContainer} />
+            <Route exact path="/dashboard" component={DashboardContainer} />
             <Route path="/manual" component={ManualContainer} />
             <Route path="/notice" component={NoticeContainer} />
             <Route path="/mentoring" component={MentoringContainer} />
@@ -64,4 +64,4 @@ Main.propTypes = {
     classes: PropTypes.object.isRequired,
 }
 
-export default withStyles(styles)(Main);
+export default withRouter(withStyles(styles)(Main));

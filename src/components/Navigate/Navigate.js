@@ -107,6 +107,7 @@ const Navigate = ({ isDrawer, handleDrawerClose, classes }) => {
                 <div className={classNames(classes.drawerHeader, !isDrawer && classes.drawerHeaderClose)}>
                     <UserContainer handleDrawerClose={handleDrawerClose} isDrawer={isDrawer}/>
                 </div>
+                
                 <MenuList className={classes.list}>
                     <Link to='/dashboard' className={classes.link}>
                         <MenuItem className={classes.item}>

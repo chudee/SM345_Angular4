@@ -91,7 +91,7 @@ const TextAlign = styled.div`
     }
 `;
 
-const Login = ({ classes }) => {
+const Login = ({ classes, handleAuth }) => {
     return (
         <Container>
             <div className={classes.Login}>
@@ -121,15 +121,18 @@ const Login = ({ classes }) => {
                                 autoComplete="current-password"
                             />
                         </TextAlign>
-                        
                     </CardContent>
                     <CardActions>
-                        <Link to="/main" className={classes.Link}>
-                            <Button raised color="accent" className={classes.Button}>
+                        <Link to="/dashboard" className={classes.Link}>
+                            <Button 
+                                raised 
+                                color="accent" 
+                                className={classes.Button}
+                                onClick={handleAuth}
+                            >
                                 로그인
                             </Button>
                         </Link>
-                        {/* <Route path="/" component={DashboardContainer} /> */}
                     </CardActions>
                 </Card>
             </div>
