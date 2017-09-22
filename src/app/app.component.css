@@ -1,0 +1,22 @@
+.header-toolbar {
+    padding-left: 80px;
+}
+
+.sidenav {
+    width: 300px;
+}
+  
+.sidenav-content {
+    display: flex;
+}
+
+.sidenav-header {
+    flex: 1;
+}
+
+.sidenav-button {
+    color: white;
+    top: 12px;
+    left: 12px;
+    position: absolute;
+}

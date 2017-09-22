@@ -1,35 +1,28 @@
-# React View 
+# HelloWorld
 
-## 실행방법
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.2.
 
-## 1. 의존성 설치
-yarn or npm install
+## Development server
 
-## 2. 실행
-yarn start or npm start
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-### What is this repository for? ###
+## Code scaffolding
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-### How do I get set up? ###
+## Build
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-### Contribution guidelines ###
+## Running unit tests
 
-* Writing tests
-* Code review
-* Other guidelines
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-### Who do I talk to? ###
+## Running end-to-end tests
 
-* Repo owner or admin
-* Other community or team contact
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Before running the tests make sure you are serving the app via `ng serve`.
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

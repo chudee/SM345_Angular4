@@ -1,0 +1,53 @@
+.sidenav-container {
+    width: 100%;
+    height: 1000px;
+}
+  
+.sidenav-contents {
+    display: flex;
+}
+
+.sidenav-header-toolbar {
+    flex: 1;
+}
+
+.sidenav-header-button {
+    color: darkgray;
+    top: 12px;
+    left: 12px;
+    position: absolute;
+}
+
+.sidenav {
+    width: 250px;
+    background-color: darkslategrey;
+}
+
+.user {
+    padding: 30px;
+    background-color:#263238;
+    color: white;
+}
+
+.listItem {
+    max-height: 48px;
+    overflow: hidden;
+    transition: all .3s cubic-bezier(.35,0,.25,1);
+}
+
+.list {
+    padding-top: 30px 0;
+}
+
+.link {
+    width: 100%;
+    text-decoration: none;
+}
+
+.linkButton {
+    width: 100%;
+    padding: 0;
+    color: white;
+    font-size: 1.1rem;
+    text-align: left;
+}

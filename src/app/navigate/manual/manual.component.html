@@ -1,0 +1,11 @@
+<h3>Manual</h3>
+<ul>
+  <li *ngFor="let manual of manuals">
+    {{ manual.title }}
+    <ul>
+      <li *ngFor="let content of manual.contents">
+        {{ content.content }}
+      </li>
+    </ul>
+  </li>
+</ul>
