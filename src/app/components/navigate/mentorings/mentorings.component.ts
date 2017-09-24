@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Mentoring } from './mentoring';
+import { Mentoring } from '../../../interfaces/mentoring';
 import { TestService } from '../../../services/test/test.service';
 
 @Component({

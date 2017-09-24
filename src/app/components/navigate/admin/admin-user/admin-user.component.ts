@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
 import { AdminUserService } from '../../../../services/admin-user/admin-user.service';
-import { User } from '../../user/user';
+import { User } from '../../../../interfaces/user';
 
 @Component({
   selector: 'app-admin-user',

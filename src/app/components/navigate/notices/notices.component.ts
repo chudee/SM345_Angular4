@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Notice } from '../notice/notice';
+import { Notice } from '../../../interfaces/notice';
 import { TestService } from '../../../services/test/test.service';
 
 @Component({

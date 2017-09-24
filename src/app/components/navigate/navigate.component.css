@@ -2,10 +2,6 @@
     width: 100%;
     height: 1000px;
 }
-
-/deep/.mat-drawer-content {
-    background-color: #fff;
-}
   
 .sidenav-contents {
     display: flex;

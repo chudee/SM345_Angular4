@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { TestService } from './services/test/test.service';
 import { AdminUserService } from './services/admin-user/admin-user.service';
+import { AdminMentoringService } from './services/admin-mentoring/admin-mentoring.service';
 
 import { AppComponent } from './components/app.component';
 import { HeaderComponent } from './components/navigate/header/header.component';
@@ -28,9 +29,9 @@ import { InMemoryDataService }  from './in-memory-data.service';
 // Imports Material Modules
 import {
   MdSidenavModule, MdCardModule,
-  MdToolbarModule,
-  MdButtonModule,
-  MdCheckboxModule,
+  MdToolbarModule, MdTooltipModule,
+  MdButtonModule, MdMenuModule,
+  MdCheckboxModule, MdSelectModule,
   MdIconModule,
   MdListModule,
   MdTabsModule,
@@ -80,9 +81,9 @@ const routes: Routes = [
     BrowserAnimationsModule,
     FormsModule,
     MdSidenavModule, MdCardModule,
-    MdToolbarModule,
-    MdButtonModule,
-    MdChipsModule,
+    MdToolbarModule, MdTooltipModule,
+    MdButtonModule, MdMenuModule,
+    MdChipsModule, MdSelectModule,
     MdIconModule,
     MdListModule,
     MdTabsModule,
@@ -100,6 +101,7 @@ const routes: Routes = [
     AuthGuard,
     TestService,
     AdminUserService,
+    AdminMentoringService,
   ],
   bootstrap: [AppComponent]
 })

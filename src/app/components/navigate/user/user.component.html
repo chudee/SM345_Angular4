@@ -5,19 +5,32 @@
       md-card-image 
       src="assets/icons/ic_face_black_48px.svg" 
       alt="user_icon"
-      class="image"
+      class="card-image"
     >
   </div>  
 
-  <md-card-title class="title">
+  <md-card-title class="card-title">
     홍길동
   </md-card-title>
 
-  <md-card-subtitle class="sub-title">
+  <md-card-subtitle class="card-sub-title">
     201533301
   </md-card-subtitle>
 
-  <md-card-content>
-
+  <md-card-content class="card-content">
+    <button md-icon-button md-xs-button [mdMenuTriggerFor]="settings">
+      <img src="assets/icons/ic_settings_black_18px.svg" alt="">
+    </button>
+    <md-menu #settings="mdMenu">
+      <button md-menu-item>프로필</button>
+      <button md-menu-item>비밀번호</button>
+    </md-menu>
+    <button md-icon-button md-xs-button mdTooltip="Inbox">
+      <img src="assets/icons/ic_email_black_18px.svg" alt="">
+    </button>
+    <button md-icon-button md-xs-button mdTooltip="Sign Out">
+      <img src="assets/icons/ic_exit_to_app_black_18px.svg" alt="">
+    </button>
   </md-card-content>
+
 </md-card>

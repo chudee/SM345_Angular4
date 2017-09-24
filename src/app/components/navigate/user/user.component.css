@@ -16,15 +16,19 @@
     border-radius: 50%;
 }
 
-.image {
+.card-image {
     width: 100%;
     margin-top: 0 !important;
 }
 
-.title {
+.card-title {
     margin-top: 10px !important;
 }
 
-.sub-title {
+.card-sub-title {
     color: rgba(0,0,0, 0.94);
+}
+
+.card-content {
+    margin-bottom: 40px !important;
 }

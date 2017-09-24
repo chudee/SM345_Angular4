@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
-import { User } from '../../components/navigate/user/user';
+import { User } from '../../interfaces/user';
 
 @Injectable()
 export class AdminUserService {

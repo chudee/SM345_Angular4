@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
-import { Notice } from '../../components/navigate/notice/notice';
-import { Mentoring } from '../../components/navigate/mentorings/mentoring';
-import { Question } from '../../components/navigate/questions/question';
-import { Manual } from '../../components/navigate/manual/manual';
+import { Notice } from '../../interfaces/notice';
+import { Mentoring } from '../../interfaces/mentoring';
+import { Question } from '../../interfaces/question';
+import { Manual } from '../../interfaces/manual';
 
 @Injectable()
 export class TestService {

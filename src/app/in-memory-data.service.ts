@@ -234,6 +234,13 @@ export class InMemoryDataService implements InMemoryDbService {
         { img: 'assets/Logo2.jpg', title: '[주제] C언어3', subTitle: 'C 멘토' },
     ];
 
-    return { users, manual, notices, questions, mentorings };
+    const mentoringSetting = {
+        startDate: 'a',
+        endDate: 'a',
+        period: 1,
+        numbers: 1,
+    };
+
+    return { users, manual, notices, questions, mentorings, mentoringSetting };
   }
 }
