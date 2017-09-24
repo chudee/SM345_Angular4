@@ -4,20 +4,22 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
-import { TestService } from './test/test.service';
+import { TestService } from './services/test/test.service';
+import { AdminUserService } from './services/admin-user/admin-user.service';
 
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './navigate/header/header.component';
-import { NavigateComponent } from './navigate/navigate.component';
-import { DashboardComponent } from './navigate/dashboard/dashboard.component';
-import { ManualComponent } from './navigate/manual/manual.component';
-import { NoticesComponent } from './navigate/notices/notices.component';
-import { MentoringsComponent } from './navigate/mentorings/mentorings.component';
-import { QuestionsComponent } from './navigate/questions/questions.component';
-import { UserComponent } from './navigate/user/user.component';
-import { AdminComponent } from './navigate/admin/admin.component';
-import { AuthGuard } from './auth.guard';
-import { LoginComponent } from './login/login.component';
+import { AppComponent } from './components/app.component';
+import { HeaderComponent } from './components/navigate/header/header.component';
+import { NavigateComponent } from './components/navigate/navigate.component';
+import { DashboardComponent } from './components/navigate/dashboard/dashboard.component';
+import { ManualComponent } from './components/navigate/manual/manual.component';
+import { NoticesComponent } from './components/navigate/notices/notices.component';
+import { MentoringsComponent } from './components/navigate/mentorings/mentorings.component';
+import { QuestionsComponent } from './components/navigate/questions/questions.component';
+import { UserComponent } from './components/navigate/user/user.component';
+import { AdminComponent } from './components/navigate/admin/admin.component';
+import { AuthGuard } from './guards/auth.guard';
+import { LoginComponent } from './components/login/login.component';
+import { AdminUserComponent } from './components/navigate/admin/admin-user/admin-user.component';
 
 // Imports for loading & configuring the in-memory web api
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -25,7 +27,7 @@ import { InMemoryDataService }  from './in-memory-data.service';
 
 // Imports Material Modules
 import {
-  MdSidenavModule,
+  MdSidenavModule, MdCardModule,
   MdToolbarModule,
   MdButtonModule,
   MdCheckboxModule,
@@ -36,9 +38,13 @@ import {
   MdTableModule,
   MdSortModule,
   MdChipsModule,
+  MdInputModule,
+  MdDatepickerModule, MdNativeDateModule,
 } from '@angular/material';
-import { AdminUserComponent } from './navigate/admin/admin-user/admin-user.component';
 
+import { AdminMentoringSettingComponent } from './components/navigate/admin/admin-mentoring-setting/admin-mentoring-setting.component';
+import { AdminReportComponent } from './components/navigate/admin/admin-report/admin-report.component';
+import { AdminMentoringComponent } from './components/navigate/admin/admin-mentoring/admin-mentoring.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, canActivate: [AuthGuard]},
@@ -65,12 +71,15 @@ const routes: Routes = [
     AdminComponent,
     LoginComponent,
     AdminUserComponent,
+    AdminMentoringSettingComponent,
+    AdminReportComponent,
+    AdminMentoringComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    MdSidenavModule,
+    MdSidenavModule, MdCardModule,
     MdToolbarModule,
     MdButtonModule,
     MdChipsModule,
@@ -81,13 +90,16 @@ const routes: Routes = [
     MdGridListModule,
     MdSortModule,
     HttpModule,
+    MdInputModule,
     MdCheckboxModule,
+    MdDatepickerModule, MdNativeDateModule,
     RouterModule.forRoot(routes),
     InMemoryWebApiModule.forRoot(InMemoryDataService),
   ],
   providers: [
+    AuthGuard,
     TestService,
-    AuthGuard
+    AdminUserService,
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,22 @@
+<md-toolbar color="primary">
+  멘토방 설정
+</md-toolbar>
+
+<form action="">
+
+  <md-form-field>
+    <input mdInput [mdDatepicker]="picker" placeholder="시작 기간 설정">
+    <md-datepicker-toggle mdSuffix [for]="picker" disabled="false"></md-datepicker-toggle>
+    <md-datepicker #picker></md-datepicker>
+  </md-form-field>
+  
+  <!-- <md-form-field>
+    <input mdInput [mdDatepicker]="picker2" placeholder="종료 기간 설정">
+    <md-datepicker-toggle mdSuffix [for]="picker2" disabled="false"></md-datepicker-toggle>
+    <md-datepicker #picker2></md-datepicker>
+  </md-form-field> -->
+
+  <button md-raised-button>
+    save
+  </button>
+</form>

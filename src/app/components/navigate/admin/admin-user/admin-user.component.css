@@ -1,0 +1,17 @@
+
+.checkbox {
+    flex: 0 0 10%;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.checked {
+    background-color: red;
+}
+
+.highlight {
+    color: #000;
+    background-color: #000;
+}

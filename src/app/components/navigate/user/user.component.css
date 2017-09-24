@@ -1,0 +1,30 @@
+.card {
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0 .4rem;
+    border-bottom: 1px solid rgba(0,0,0, 0.2);
+    box-shadow: none !important;
+}
+
+.image-wrapper {
+    width: 72px;
+    margin: 0 auto 8px;
+    height: 72px;
+    box-sizing: border-box;
+    border: 1px solid hsla(210,8%,51%,.13);
+    padding: 4px;
+    border-radius: 50%;
+}
+
+.image {
+    width: 100%;
+    margin-top: 0 !important;
+}
+
+.title {
+    margin-top: 10px !important;
+}
+
+.sub-title {
+    color: rgba(0,0,0, 0.94);
+}

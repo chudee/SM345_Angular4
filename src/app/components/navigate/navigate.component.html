@@ -1,0 +1,41 @@
+<md-sidenav-container class="sidenav-container">
+    
+  <!-- Side Navigation -->
+  <md-sidenav 
+    #sidenav 
+    mode="side"
+    opened="true"
+    class="sidenav"
+  >
+    <!-- UserComponent -->
+    <app-user></app-user>
+
+    <!-- NavigateComponent -->
+    <md-list>
+      <md-list-item class="list-item" *ngFor="let link of links">
+        <a md-button [routerLink]="link.route" routerLinkActive="active-link" class="link">
+          <md-icon class="icon"> {{ link.icon }} </md-icon> 
+          <span class="text"> {{ link.title }} </span>
+        </a>
+      </md-list-item>
+    </md-list>
+
+  </md-sidenav>
+
+  <!-- Header -->
+  <div class="sidenav-header">
+    <!-- Sice Nav Button -->
+    <button md-icon-button class="sidenav-header-button" (click)="sidenav.toggle()"> 
+      <md-icon class="md-24" aria-label="Example icon-button with a heart icon">menu</md-icon>
+    </button>
+
+    <!-- Header Components -->
+    <app-header class="sidenav-header-toolbar"></app-header>
+  </div>
+
+  <!-- Routes Contents -->
+  <div class="sidenav-contents">
+    <router-outlet></router-outlet>
+  </div>
+
+</md-sidenav-container>
