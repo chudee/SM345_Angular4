@@ -1,0 +1,33 @@
+.header {
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 25px;
+}
+
+.mentoring-container {
+    width: calc(100% - 600px);
+    position: absolute;
+    margin: 30px 300px;
+}
+
+.img {
+    background-size: cover;
+}
+
+.mat-list-icon {
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.list-item /deep/.mat-list-text {
+    width: 70%;
+}
+
+.chip {
+    margin: auto;
+}
+
+.button {
+    flex: 1;
+    margin: 10px;
+}

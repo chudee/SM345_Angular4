@@ -226,12 +226,12 @@ export class InMemoryDataService implements InMemoryDbService {
     ];
 
     const mentorings = [
-        { id: 1, img: 'assets/c.png', title: '[주제] C언어', subTitle: 'C 멘토', people: 1, open: false },
-        { id: 2, img: 'assets/algo.png', title: '[주제] 알고리즘', subTitle: 'algo 멘토', people: 2, open: false },
-        { id: 3, img: 'assets/Logo1.jpg', title: '[주제] C언어2', subTitle: 'C 멘토', people: 3, open: true },
-        { id: 4, img: 'assets/java.png', title: '[주제] 자바2', subTitle: 'java 멘토', people: 4, open: true },
-        { id: 5, img: 'assets/algo.png', title: '[주제] 알고리즘2', subTitle: 'algo 멘토', people: 1, open: true },
-        { id: 6, img: 'assets/Logo2.jpg', title: '[주제] C언어3', subTitle: 'C 멘토', people: 2, open: true },
+        { id: 1, img: 'assets/c.png', team: '팀1', title: 'C언어', subTitle: 'C 멘토', people: 1, open: false },
+        { id: 2, img: 'assets/algo.png', team: '팀2', title: '알고리즘', subTitle: 'algo 멘토', people: 2, open: false },
+        { id: 3, img: 'assets/Logo1.jpg', team: '팀3', title: 'C언어2', subTitle: 'C 멘토', people: 3, open: true },
+        { id: 4, img: 'assets/java.png', team: '팀4', title: '자바2', subTitle: 'java 멘토', people: 4, open: true },
+        { id: 5, img: 'assets/algo.png', team: '팀5', title: '알고리즘2', subTitle: 'algo 멘토', people: 1, open: true },
+        { id: 6, img: 'assets/Logo2.jpg', team: '팀6', title: 'C언어3', subTitle: 'C 멘토', people: 2, open: true },
     ];
 
     const mentoringSetting = [
