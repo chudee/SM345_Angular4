@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject} from '@angular/core';
+
+class survey {
+  title: string;
+}
 
 @Component({
   selector: 'app-admin-survey-setting',
@@ -7,9 +11,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminSurveySettingComponent implements OnInit {
 
+  surveys: survey[] = [
+    { title: '멘토링 굿' },
+  ];
+
   constructor() { }
 
   ngOnInit() {
+    this.getSurveys();
   }
 
+  addSurvey(e) {
+    this.surveys.push(e.target.value);
+  }
+
+  getSurveys() {
+    return this.surveys;
+  }
 }

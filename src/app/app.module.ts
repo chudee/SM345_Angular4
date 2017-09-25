@@ -54,7 +54,7 @@ import {
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, canActivate: [AuthGuard]},
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent},
   { path: 'dashboard', component: DashboardComponent},
   { path: 'manual', component: ManualComponent},
   { path: 'notices', component: NoticesComponent},
