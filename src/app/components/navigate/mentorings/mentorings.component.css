@@ -1,3 +1,45 @@
+.header {
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 25px;
+}
+
 .mentorings-container {
+    position: absolute;
+    width: calc(100% - 60px);
+    margin: 30px;
+}
+
+.card {
+    height: 100px;
+    max-width: 500px;
+    top: -50%;
+    transform: translateY(50%);
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.text {
+    font-size: 1.5rem;
+    line-height: 100px;
+}
+
+.img {
     width: 100%;
+}
+
+.tile-header {
+    height: 100% !important;
+    font-size: 1.2rem;
+    text-align: center;
+    display: block !important;
+    line-height: 15;
+    background: rgba(0,0,0,0.6) !important;
+}
+
+.icon-link {
+    float: right;
+    margin-right: 8px;
 }

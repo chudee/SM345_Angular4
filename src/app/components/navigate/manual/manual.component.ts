@@ -11,16 +11,30 @@ import { TestService } from '../../../services/test/test.service';
 })
 export class ManualComponent implements OnInit {
   manuals: Manual[];
-
+  step = 0;
+  
+  
   constructor(
     private router: Router,
     private testService: TestService
   ) { }
-
+  
   ngOnInit() {
     this.getManuals();
   }
+  
+  setStep(index: number) {
+    this.step = index;
+  }
 
+  nextStep() {
+    this.step++;
+  }
+
+  prevStep() {
+    this.step--;
+  }
+  
   getManuals() {
     this.testService
         .getManuals()

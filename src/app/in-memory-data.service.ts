@@ -226,20 +226,36 @@ export class InMemoryDataService implements InMemoryDbService {
     ];
 
     const mentorings = [
-        { img: 'assets/c.png', title: '[주제] C언어', subTitle: 'C 멘토' },
-        { img: 'assets/algo.png', title: '[주제] 알고리즘', subTitle: 'algo 멘토' },
-        { img: 'assets/Logo1.jpg', title: '[주제] C언어2', subTitle: 'C 멘토' },
-        { img: 'assets/java.png', title: '[주제] 자바2', subTitle: 'java 멘토' },
-        { img: 'assets/algo.png', title: '[주제] 알고리즘2', subTitle: 'algo 멘토' },
-        { img: 'assets/Logo2.jpg', title: '[주제] C언어3', subTitle: 'C 멘토' },
+        { id: 1, img: 'assets/c.png', title: '[주제] C언어', subTitle: 'C 멘토', people: 1, open: false },
+        { id: 2, img: 'assets/algo.png', title: '[주제] 알고리즘', subTitle: 'algo 멘토', people: 2, open: false },
+        { id: 3, img: 'assets/Logo1.jpg', title: '[주제] C언어2', subTitle: 'C 멘토', people: 3, open: true },
+        { id: 4, img: 'assets/java.png', title: '[주제] 자바2', subTitle: 'java 멘토', people: 4, open: true },
+        { id: 5, img: 'assets/algo.png', title: '[주제] 알고리즘2', subTitle: 'algo 멘토', people: 1, open: true },
+        { id: 6, img: 'assets/Logo2.jpg', title: '[주제] C언어3', subTitle: 'C 멘토', people: 2, open: true },
     ];
 
-    const mentoringSetting = {
-        startDate: 'a',
-        endDate: 'a',
-        period: 1,
-        numbers: 1,
-    };
+    const mentoringSetting = [
+        {
+            id: 0,
+            mentor: {
+                startDate: Date(),
+                endDate: Date(),
+                maxNumber: 20,
+            },
+            mentee: {
+                startDate: Date(),
+                endDate: Date(),
+                maxNumber: 5,
+            },
+            room: {
+                period: 30,
+                count: 5,
+            },
+            survey: [
+                { title: '1차 설문', content: 'ㅁㄴㅇㄴ망ㄴㅁㅇ' }
+            ]
+        }
+    ];
 
     return { users, manual, notices, questions, mentorings, mentoringSetting };
   }

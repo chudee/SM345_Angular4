@@ -1,8 +1,36 @@
-<h3>Questions</h3>
-<ul>
-  <li *ngFor="let question of questions">
-    {{ question.id }}
-    {{ question.title }}
-    {{ question.content }}
-  </li>
-</ul>
+<h1 class="header">
+  질문게시판
+</h1>
+  
+<div class="table-container mat-elevation-z8">
+  <md-table #table [dataSource]="dataSource">
+
+    <ng-container mdColumnDef="id">
+      <md-header-cell *mdHeaderCellDef class="id"> ID </md-header-cell>
+      <md-cell *mdCellDef="let element" class="id"> {{element.id}} </md-cell>
+    </ng-container>
+
+    <ng-container mdColumnDef="title">
+      <md-header-cell *mdHeaderCellDef class="title"> 제목 </md-header-cell>
+      <md-cell *mdCellDef="let element" class="title"> {{element.title}} </md-cell>
+    </ng-container>
+
+    <ng-container mdColumnDef="author">
+      <md-header-cell *mdHeaderCellDef class="author"> 작성자 </md-header-cell>
+      <md-cell *mdCellDef="let element" class="author"> {{element.author}} </md-cell>
+    </ng-container>
+
+    <ng-container mdColumnDef="date">
+      <md-header-cell *mdHeaderCellDef class="date"> 날짜 </md-header-cell>
+      <md-cell *mdCellDef="let element" class="date"> {{element.date}} </md-cell>
+    </ng-container>
+
+    <ng-container mdColumnDef="views">
+      <md-header-cell *mdHeaderCellDef class="views"> 조회수 </md-header-cell>
+      <md-cell *mdCellDef="let element" class="views"> {{element.views}} </md-cell>
+    </ng-container>
+
+    <md-header-row *mdHeaderRowDef="displayedColumns" class="row"></md-header-row>
+    <md-row *mdRowDef="let row; columns: displayedColumns;"></md-row>
+  </md-table>
+</div>

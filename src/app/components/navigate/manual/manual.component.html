@@ -1,11 +1,23 @@
-<h3>Manual</h3>
-<ul>
-  <li *ngFor="let manual of manuals">
-    {{ manual.title }}
-    <ul>
-      <li *ngFor="let content of manual.contents">
-        {{ content.content }}
-      </li>
-    </ul>
-  </li>
-</ul>
+<h1 class="header">
+  사용설명서
+</h1>
+<div class="manual-container">
+  <md-accordion class="example-headers-align">
+    <md-expansion-panel 
+      hideToggle="true"
+      *ngFor="let manual of manuals"
+    >
+      <md-expansion-panel-header class="panel-header">
+        <md-panel-title class="panel-title">
+          {{ manual.title }}
+        </md-panel-title>
+      </md-expansion-panel-header>
+
+      <md-list>
+        <md-list-item *ngFor="let content of manual.contents">
+          {{ content.content }}
+        </md-list-item>
+      </md-list>
+    </md-expansion-panel>
+  </md-accordion>
+</div>

@@ -1,0 +1,24 @@
+.header {
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 25px;
+}
+
+.table-container {
+    width: calc(100% - 60px);
+    position: absolute;
+    margin: 30px;
+}
+
+.id {
+    flex: 1 1 10% !important;
+}
+
+.title {
+    flex: 1 1 80% !important;
+}
+
+.date {
+    flex: 1 1 10% !important;
+}

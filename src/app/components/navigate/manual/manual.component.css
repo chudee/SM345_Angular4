@@ -1,0 +1,32 @@
+.header {
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 25px;
+}
+
+.manual-container {
+    position: absolute;
+    width: calc(100% - 60px);
+    margin: 30px;
+}
+
+.example-headers-align .mat-expansion-panel-header-title, 
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.panel-header {
+    background: rgba(0, 0, 0, 0.43) !important;
+}
+
+.panel-title {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500;
+}

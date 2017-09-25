@@ -1,15 +1,40 @@
-<!-- <h3>Mentorings</h3>
+<div class="header">
+  멘토방  
+</div>
+
 <div class="mentorings-container">
-  <md-grid-list cols="2" rowHeight="2:1">
+
+  <md-grid-list 
+    cols="3"
+    rowHeight="4:3" 
+    *ngIf="onDate(); else elseBlock"
+  >
     <md-grid-tile 
-      *ngFor="let mentoring of mentorings"
-      
+      *ngFor="let mentoring of mentorings" 
+
     >
-      <img src={{mentoring.img}} alt="">
+      <img src={{mentoring.img}} alt="" class="img">
+
+      <md-grid-tile-header *ngIf="!mentoring.open" class="tile-header">
+        <span>신청 대기중...</span>
+      </md-grid-tile-header>
+
+      <md-grid-tile-footer>
+        <h1 style="flex: 1">{{ mentoring.title }}</h1>
+        <button md-icon-button routerLink={{mentoring.id}}>
+          <md-icon class="icon-link">keyboard_arrow_right</md-icon>
+        </button>
+      </md-grid-tile-footer>
+
     </md-grid-tile>
   </md-grid-list>
-</div> -->
-<div>
+  
+  <ng-template #elseBlock>
+    <md-card class="card">
+      <md-card-content>
+        <h3 class="text">멘토링 기간이 아닙니다.</h3>
+      </md-card-content>
+    </md-card>
+  </ng-template>
 
-<h3>멘토링 기간이 아닙니다.</h3>
 </div>

@@ -4,45 +4,108 @@
     <md-card-header>
       <md-card-title> 멘토 기간 설정 </md-card-title>
     </md-card-header>
-    
+
     <md-card-content class="date-content">
+
       <md-form-field class="date-item">
-        <input mdInput [mdDatepicker]="startPicker" placeholder="시작 기간 설정">
-        <md-datepicker-toggle mdSuffix [for]="startPicker"></md-datepicker-toggle>
-        <md-datepicker #startPicker></md-datepicker>
+        <input mdInput [mdDatepicker]="mentorStartPicker" placeholder="시작 기간 설정" 
+          [value]="initMentorStartDate()" 
+          (dateChange)="changeMentorStartDate($event)"
+        >
+        <md-datepicker-toggle mdSuffix [for]="mentorStartPicker"></md-datepicker-toggle>
+        <md-datepicker #mentorStartPicker></md-datepicker>
       </md-form-field>
+
       <md-form-field class="date-item">
-        <input mdInput [mdDatepicker]="endPicker" placeholder="종료 기간 설정">
-        <md-datepicker-toggle mdSuffix [for]="endPicker"></md-datepicker-toggle>
-        <md-datepicker #endPicker></md-datepicker>
+        <input mdInput [mdDatepicker]="mentorEndPicker" placeholder="종료 기간 설정" 
+          [value]="initMentorEndDate()" 
+          (dateChange)="changeMentorEndDate($event)"
+        >
+        <md-datepicker-toggle mdSuffix [for]="mentorEndPicker"></md-datepicker-toggle>
+        <md-datepicker #mentorEndPicker></md-datepicker>
       </md-form-field>
     </md-card-content>
 
-    <md-card-actions>
-      <button md-button color="primary">
-        SAVE
-      </button>
-    </md-card-actions>
+    
   </md-card>
 
+  <md-card>
+    <md-card-header>
+      <md-card-title> 멘티 기간 설정 </md-card-title>
+    </md-card-header>
+
+    <md-card-content class="date-content">
+      <md-form-field class="date-item">
+        <input mdInput [mdDatepicker]="menteeStartPicker" placeholder="시작 기간 설정"
+          [value]="initMenteeStartDate()"
+          (dateChange)="changeMenteeStartDate($event)"
+        >
+        <md-datepicker-toggle mdSuffix [for]="menteeStartPicker"></md-datepicker-toggle>
+        <md-datepicker #menteeStartPicker></md-datepicker>
+      </md-form-field>
+      <md-form-field class="date-item">
+        <input mdInput [mdDatepicker]="menteeEndPicker" placeholder="종료 기간 설정"
+          [value]="initMenteeEndDate()"
+          (dateChange)="changeMenteeEndDate($event)"
+        >
+        <md-datepicker-toggle mdSuffix [for]="menteeEndPicker"></md-datepicker-toggle>
+        <md-datepicker #menteeEndPicker></md-datepicker>
+      </md-form-field>
+    </md-card-content>
+  </md-card>
+
+  <md-card>
+      <md-card-header>
+        <md-card-title> 최대 멘토인원 </md-card-title>
+      </md-card-header>
+      
+      <md-card-content>
+        <md-select md-select-trigger
+          placeholder="인원"
+          [value]="initMentorNumber()"
+          (change)="changeMentorNumber($event)"
+        >
+          <md-option *ngFor="let mentor of mentorNumbers" [value]="mentor.number">
+            {{ mentor.text }}
+          </md-option>
+        </md-select>
+      </md-card-content>
+    </md-card>
+
+    <md-card>
+        <md-card-header>
+          <md-card-title> 최대 멘티인원 </md-card-title>
+        </md-card-header>
+        
+        <md-card-content>
+          <md-select md-select-trigger
+            placeholder="인원"
+            [value]="initMenteeNumber()"
+            (change)="changeMenteeNumber($event)"
+          >
+            <md-option *ngFor="let mentee of menteeNumbers" [value]="mentee.number">
+              {{ mentee.text }}
+            </md-option>
+          </md-select>
+        </md-card-content>
+      </md-card>
+  
   <md-card>
     <md-card-header>
       <md-card-title> 모임 기간 설정 </md-card-title>
     </md-card-header>
     
     <md-card-content>
-      <md-select placeholder="기간">
+      <md-select md-select-trigger
+        placeholder="기간"
+        [value]="initPeriod()"
+        (change)="changePeriod($event)"
+      >
         <md-option *ngFor="let period of mettingPeriods" [value]="period.date">
           {{ period.text }}
         </md-option>
       </md-select>
     </md-card-content>
-
-    <md-card-actions>
-      <button md-button color="primary">
-        SAVE
-      </button>
-    </md-card-actions>
   </md-card>
 
   <md-card>
@@ -51,18 +114,22 @@
     </md-card-header>
     
     <md-card-content>
-      <md-select placeholder="횟수">
+      <md-select md-select-trigger
+        placeholder="횟수"
+        [value]="initCount()"
+        (change)="changeCount($event)"
+      >
         <md-option *ngFor="let number of mettingNumbers" [value]="number.number">
           {{ number.text }}
         </md-option>
       </md-select>
     </md-card-content>
-
-    <md-card-actions>
-      <button md-button color="primary">
-        SAVE
-      </button>
-    </md-card-actions>
   </md-card>
 
+  
+    <button md-raised-button color="primary" (click)="save()" class="save">
+      SAVE
+    </button>
+ 
+  
 </div>
