@@ -38,12 +38,12 @@
         <hr />
         <h3>모임 결과 보고서</h3>
         <md-list>
-          <md-list-item *ngFor="let folder of folders" class="list-item">
+          <md-list-item *ngFor="let report of reports" class="list-item">
             <md-icon md-list-icon>assignment</md-icon>
-            <h4 md-line class="line">{{folder.name}}</h4>
-            <p md-line class="line"> {{folder.updated | date}} </p>
+            <h4 md-line class="line">{{report.name}}</h4>
+            <p md-line class="line"> {{report.updated | date}} </p>
             <md-icon>file_download</md-icon>
-            <md-chip class="chip" color={{folder.color}} selected="true">{{folder.ok}}</md-chip>
+            <md-chip class="chip" color={{report.color}} selected="true">{{report.ok}}</md-chip>
           </md-list-item>
           <md-divider></md-divider>
 

@@ -1,0 +1,45 @@
+
+.checkbox {
+    flex: 0 0 10%;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.checked {
+    background-color: red;
+}
+
+.highlight {
+    color: #000;
+    background-color: #000;
+}
+
+.chackbox {
+    flex: 1 1 5%;
+}
+
+.id {
+    flex: 1 1 10%;
+}
+
+.open {
+    flex: 1 1 10%;
+}
+
+.people {
+    flex: 1 1 15%;
+}
+
+.team {
+    flex: 1 1 20%;
+}
+
+.title {
+    flex: 1 1 20%;
+}
+
+.mentor {
+    flex: 1 1 20%;
+}

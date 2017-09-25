@@ -1,6 +1,5 @@
 .admin-container {
-    max-width: 100%;
+    width: calc(100% - 60px);
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    margin: 30px;
 }

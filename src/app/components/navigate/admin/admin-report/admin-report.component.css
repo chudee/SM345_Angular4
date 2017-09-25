@@ -1,0 +1,38 @@
+
+.checkbox {
+    flex: 0 0 10%;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.checked {
+    background-color: red;
+}
+
+.highlight {
+    color: #000;
+    background-color: #000;
+}
+
+.chackbox {
+    flex: 1 1 5%;
+}
+
+.ok {
+    flex: 1 1 10%;
+}
+
+.team {
+    flex: 1 1 15%;
+}
+
+.name {
+    flex: 1 1 50%;
+}
+
+.updated {
+    flex: 1 1 20%;
+}
+

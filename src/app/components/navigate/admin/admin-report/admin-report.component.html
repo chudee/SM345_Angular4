@@ -1,3 +1,89 @@
-<p>
-  admin-report works!
-</p>
+<div class="container mat-elevation-z8">
+    
+      <md-toolbar [color]="selectedReports.length === 0 ? 'primary' : 'accent'">
+        <span *ngIf="selectedReports.length === 0"> 멘토방 목록 </span>
+        <span *ngIf="selectedReports.length !== 0"> {{ selectedReports.length }} selected </span>
+  
+        <span class="example-spacer"></span>
+  
+        <!-- 생성 버튼 -->
+        <button 
+          md-icon-button
+          *ngIf="selectedReports.length === 0"
+        >
+          <md-icon>add</md-icon>
+        </button>
+  
+        <!-- 다운로드 버튼 -->
+        <button 
+          md-icon-button
+          *ngIf="selectedReports.length !== 0"
+        >
+          <md-icon>file_download</md-icon>
+        </button>
+
+        <!-- 수정 버튼 -->
+        <button 
+          md-icon-button
+          *ngIf="selectedReports.length === 1"
+        >
+          <md-icon>edit</md-icon>
+        </button>
+  
+        <!-- 삭제 버튼 -->
+        <button 
+          md-icon-button
+          *ngIf="selectedReports.length !== 0"
+        >
+          <md-icon>delete</md-icon>
+        </button>
+    </md-toolbar>
+  
+      <md-table #table [dataSource]="dataSource">
+        <ng-container mdColumnDef="selected">
+  
+          <md-header-cell *mdHeaderCellDef class="checkbox"> 
+            <md-checkbox 
+            [indeterminate]="selectedReports.length > 0 && selectedReports.length < 3"
+            [checked]="selectedReports.length === 3"
+            (change)="selectAllClick(reports, selectedReports.length)"
+            ></md-checkbox>   
+          </md-header-cell>
+          
+          <md-cell *mdCellDef="let element" class="checkbox"> 
+            <md-checkbox
+            [checked]="isSelected(element)"
+            (change)="selectClick(element);"
+            ></md-checkbox> 
+          </md-cell>
+          
+        </ng-container>
+        
+        <ng-container mdColumnDef="ok">
+          <md-header-cell *mdHeaderCellDef class="ok"> Ok </md-header-cell>
+          <md-cell *mdCellDef="let element" class="ok"> 
+           <md-chip *ngIf="element.ok === '확인완료'" color="primary" selected="true"> {{ element.ok }} </md-chip>
+           <md-chip *ngIf="element.ok === '확인중'" color="accent" selected="true"> {{ element.ok }} </md-chip>
+           <md-chip *ngIf="element.ok === '반려'"> {{ element.ok }} </md-chip>
+          </md-cell>
+        </ng-container>
+    
+        <ng-container mdColumnDef="team">
+          <md-header-cell *mdHeaderCellDef class="team"> Team </md-header-cell>
+          <md-cell *mdCellDef="let element" class="team"> [{{element.team}}] </md-cell>
+        </ng-container>
+
+        <ng-container mdColumnDef="name">
+          <md-header-cell *mdHeaderCellDef class="name"> Name </md-header-cell>
+          <md-cell *mdCellDef="let element" class="name"> {{element.name}} </md-cell>
+        </ng-container>
+  
+        <ng-container mdColumnDef="updated">
+          <md-header-cell *mdHeaderCellDef class="updated"> Updated </md-header-cell>
+          <md-cell *mdCellDef="let element" class="updated"> {{element.updated | date:'MM/dd/yyyy'}} </md-cell>
+        </ng-container>
+
+        <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
+        <md-row *mdRowDef="let row; columns: displayedColumns;"></md-row>
+      </md-table>
+    </div>

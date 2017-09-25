@@ -27,7 +27,7 @@ export class MentoringDetailsComponent implements OnInit {
     .switchMap((params: ParamMap) => this.testService.getMentoring(+params.get('id')))
     .subscribe(mentoring => this.mentoring = mentoring);
   }
-  folders = [
+  reports = [
     {
       name: '3차 모임결과보고서',
       updated: new Date('1/1/16'),

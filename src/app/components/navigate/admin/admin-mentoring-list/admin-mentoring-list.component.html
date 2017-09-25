@@ -1,3 +1,90 @@
-<p>
-  admin-mentoring-list works!
-</p>
+<div class="container mat-elevation-z8">
+    
+      <md-toolbar [color]="selectedMentorings.length === 0 ? 'primary' : 'accent'">
+        <span *ngIf="selectedMentorings.length === 0"> 멘토방 목록 </span>
+        <span *ngIf="selectedMentorings.length !== 0"> {{ selectedMentorings.length }} selected </span>
+  
+        <span class="example-spacer"></span>
+  
+        <!-- 생성 버튼 -->
+        <button 
+          md-icon-button
+          *ngIf="selectedMentorings.length === 0"
+        >
+          <md-icon>add</md-icon>
+        </button>
+  
+        <!-- 수정 버튼 -->
+        <button 
+          md-icon-button
+          *ngIf="selectedMentorings.length === 1"
+        >
+          <md-icon>edit</md-icon>
+        </button>
+  
+        <!-- 삭제 버튼 -->
+        <button 
+          md-icon-button
+          *ngIf="selectedMentorings.length !== 0"
+        >
+          <md-icon>delete</md-icon>
+        </button>
+    </md-toolbar>
+  
+      <md-table #table [dataSource]="dataSource">
+        <ng-container mdColumnDef="selected">
+  
+          <md-header-cell *mdHeaderCellDef class="checkbox"> 
+            <md-checkbox 
+              [indeterminate]="selectedMentorings.length > 0 && selectedMentorings.length < 6"
+              [checked]="selectedMentorings.length === 6"
+              (change)="selectAllClick(mentorings, selectedMentorings.length)"
+            ></md-checkbox>   
+          </md-header-cell>
+  
+          <md-cell *mdCellDef="let element" class="checkbox"> 
+            <md-checkbox
+              [checked]="isSelected(element)"
+              (change)="selectClick(element);"
+            ></md-checkbox> 
+          </md-cell>
+  
+        </ng-container>
+  
+  
+        <ng-container mdColumnDef="id">
+          <md-header-cell *mdHeaderCellDef class="id"> ID </md-header-cell>
+          <md-cell *mdCellDef="let element" class="id"> {{element.id}} </md-cell>
+        </ng-container>
+  
+        <ng-container mdColumnDef="title">
+          <md-header-cell *mdHeaderCellDef class="title"> Title </md-header-cell>
+          <md-cell *mdCellDef="let element" class="title"> {{element.title}} </md-cell>
+        </ng-container>
+
+        <ng-container mdColumnDef="team">
+          <md-header-cell *mdHeaderCellDef class="team"> Team </md-header-cell>
+          <md-cell *mdCellDef="let element" class="team"> {{element.team}} </md-cell>
+        </ng-container>
+
+        <ng-container mdColumnDef="subTitle">
+          <md-header-cell *mdHeaderCellDef  class="mentor"> Mentor </md-header-cell>
+          <md-cell *mdCellDef="let element" class="mentor"> {{element.subTitle}} </md-cell>
+        </ng-container>
+
+        <ng-container mdColumnDef="people">
+          <md-header-cell *mdHeaderCellDef class="people"> People </md-header-cell>
+          <md-cell *mdCellDef="let element" class="people"> {{element.people}} 명 </md-cell>
+        </ng-container>
+    
+        <ng-container mdColumnDef="open">
+          <md-header-cell *mdHeaderCellDef class="open"> Open </md-header-cell>
+          <md-cell *mdCellDef="let element" class="open"> <md-chip-list><md-chip>
+            {{ element.open === false ? '거절' : '개설완료' }} </md-chip></md-chip-list>
+          </md-cell>
+        </ng-container>
+    
+        <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
+        <md-row *mdRowDef="let row; columns: displayedColumns;"></md-row>
+      </md-table>
+    </div>
