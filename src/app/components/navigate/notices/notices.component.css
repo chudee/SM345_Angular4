@@ -16,9 +16,26 @@
 }
 
 .title {
-    flex: 1 1 80% !important;
+    flex: 1 1 75% !important;
 }
 
 .date {
     flex: 1 1 10% !important;
+}
+
+.checkbox {
+    flex: 0 0 5%;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.checked {
+    background-color: red;
+}
+
+.highlight {
+    color: #000;
+    background-color: #000;
 }

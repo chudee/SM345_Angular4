@@ -3,7 +3,54 @@
 </h1>
 
 <div class="table-container mat-elevation-z8">
+    <md-toolbar [color]="selectedNotices.length === 0 ? 'primary' : 'accent'">
+        <span *ngIf="selectedNotices.length === 0"> 공지사항 </span>
+        <span *ngIf="selectedNotices.length !== 0"> {{ selectedNotices.length }} selected </span>
+  
+        <span class="example-spacer"></span>
+  
+        <!-- 생성 버튼 -->
+        <button 
+          md-icon-button
+          *ngIf="selectedNotices.length === 0"
+        >
+          <md-icon>add</md-icon>
+        </button>
+  
+        <!-- 수정 버튼 -->
+        <button 
+          md-icon-button
+          *ngIf="selectedNotices.length === 1"
+        >
+          <md-icon>edit</md-icon>
+        </button>
+  
+        <!-- 삭제 버튼 -->
+        <button 
+          md-icon-button
+          *ngIf="selectedNotices.length !== 0"
+        >
+          <md-icon>delete</md-icon>
+        </button>
+    </md-toolbar>
+
   <md-table #table [dataSource]="dataSource">
+
+    <ng-container mdColumnDef="selected">
+      <md-header-cell *mdHeaderCellDef class="checkbox"> 
+        <md-checkbox
+          [indeterminate]="selectedNotices.length > 0 && selectedNotices.length < 13"
+          [checked]="selectedNotices.length === 13"
+          (change)="selectAllClick(notices, selectedNotices.length)"
+        ></md-checkbox>   
+      </md-header-cell>
+      <md-cell *mdCellDef="let element" class="checkbox"> 
+        <md-checkbox
+          [checked]="isSelected(element)"
+          (change)="selectClick(element);"
+        ></md-checkbox> 
+      </md-cell>
+    </ng-container>
 
     <ng-container mdColumnDef="id">
       <md-header-cell *mdHeaderCellDef class="id"> ID </md-header-cell>

@@ -16,8 +16,10 @@ import { TestService } from '../../../services/test/test.service';
 export class NoticesComponent implements OnInit {
   notices: Notice[];
   selectedNotice: Notice;
-  displayedColumns = ['id', 'title', 'date'];
+  displayedColumns = ['selected', 'id', 'title', 'date'];
   dataSource;
+
+  selectedNotices: Notice[] = [];
 
   constructor(
     private testService: TestService,
@@ -36,6 +38,41 @@ export class NoticesComponent implements OnInit {
           this.dataSource = new ExampleDataSource(notices);
         });
   }
+
+  selectClick(notice) {
+    const selectedIndex = this.selectedNotices.indexOf(notice);
+    let newSelected = [];
+
+    if(selectedIndex === -1) {
+      newSelected = newSelected.concat(this.selectedNotices, notice);
+    } else if (selectedIndex === 0) {
+      newSelected = newSelected.concat(this.selectedNotices.slice(1));
+    } else if (selectedIndex === this.selectedNotices.length - 1) {
+      newSelected = newSelected.concat(this.selectedNotices.slice(0, -1));
+    } else if (selectedIndex > 0) {
+      newSelected = newSelected.concat(
+        this.selectedNotices.slice(0, selectedIndex),
+        this.selectedNotices.slice(selectedIndex + 1),
+      );
+    }
+    this.selectedNotices = newSelected;
+  }
+
+  selectAllClick(notices) {
+    const length = this.selectedNotices.length;
+    this.isSelected(notices);
+    if(length === 0) {
+      notices.map(notice => this.selectedNotices.push(notice));
+      return;
+    } else if(length === notices.length) {
+      this.selectedNotices = [];
+    } else {
+      this.selectedNotices = [];
+      notices.map(notice => this.selectedNotices.push(notice));
+    }
+  }
+
+  isSelected = notice => this.selectedNotices.indexOf(notice) !== -1;
 
 }
 
