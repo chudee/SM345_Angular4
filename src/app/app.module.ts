@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { TestService } from './services/test/test.service';
@@ -23,6 +23,7 @@ import { UserComponent } from './components/home/navigate/user/user.component';
 import { AdminComponent } from './components/home/navigate/admin/admin.component';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './components/login/login.component';
+import { LoadingComponent } from './components/loading/loading.component';
 import { AdminUserComponent } from './components/home/navigate/admin/admin-user/admin-user.component';
 import { AdminMentoringSettingComponent } from './components/home/navigate/admin/admin-mentoring-setting/admin-mentoring-setting.component';
 import { AdminReportComponent } from './components/home/navigate/admin/admin-report/admin-report.component';
@@ -38,19 +39,19 @@ import { InMemoryDataService }  from './in-memory-data.service';
 
 // Imports Material Modules
 import {
-  MdSidenavModule, MdCardModule,
-  MdToolbarModule, MdTooltipModule,
-  MdButtonModule, MdMenuModule,
-  MdCheckboxModule, MdSelectModule,
-  MdIconModule, MdExpansionModule,
-  MdListModule,
-  MdTabsModule,
-  MdGridListModule,
-  MdTableModule,
-  MdSortModule,
-  MdChipsModule,
-  MdInputModule,
-  MdDatepickerModule, MdNativeDateModule,
+  MatSidenavModule, MatCardModule,
+  MatToolbarModule, MatTooltipModule,
+  MatButtonModule, MatMenuModule,
+  MatCheckboxModule, MatSelectModule,
+  MatIconModule, MatExpansionModule,
+  MatListModule, MatFormFieldModule,
+  MatTabsModule, MatProgressSpinnerModule,
+  MatGridListModule, MatProgressBarModule,
+  MatTableModule,
+  MatSortModule,
+  MatChipsModule,
+  MatInputModule,
+  MatDatepickerModule, MatNativeDateModule,
 } from '@angular/material';
 
 
@@ -58,12 +59,13 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: '', component: HomeComponent, canActivate: [AuthGuard],
     children: [
-      { path: 'dashboard', component: DashboardComponent},
-      { path: 'manual', component: ManualComponent},
-      { path: 'notices', component: NoticesComponent},
-      { path: 'mentorings', component: MentoringsComponent},
+      { path: '', component: DashboardComponent },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'manual', component: ManualComponent },
+      { path: 'notices', component: NoticesComponent },
+      { path: 'mentorings', component: MentoringsComponent },
       { path: 'mentorings/:id', component: MentoringDetailsComponent },
-      { path: 'questions', component: QuestionsComponent},
+      { path: 'questions', component: QuestionsComponent },
       { 
         path: 'admin', component: AdminComponent,
         children: [
@@ -104,25 +106,26 @@ const routes: Routes = [
     AdminSurveySettingComponent,
     AdminSurveyResultComponent,
     AdminExcelComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    FormsModule,
-    MdSidenavModule, MdCardModule,
-    MdToolbarModule, MdTooltipModule,
-    MdButtonModule, MdMenuModule,
-    MdChipsModule, MdSelectModule,
-    MdIconModule, MdExpansionModule,
-    MdListModule,
-    MdTabsModule,
-    MdTableModule,
-    MdGridListModule,
-    MdSortModule,
+    FormsModule, ReactiveFormsModule,
+    MatSidenavModule, MatCardModule,
+    MatToolbarModule, MatTooltipModule,
+    MatButtonModule, MatMenuModule,
+    MatChipsModule, MatSelectModule,
+    MatIconModule, MatExpansionModule,
+    MatListModule, MatFormFieldModule,
+    MatTabsModule, MatProgressSpinnerModule,
+    MatTableModule, MatProgressBarModule,
+    MatGridListModule,
+    MatSortModule,
     HttpModule,
-    MdInputModule,
-    MdCheckboxModule,
-    MdDatepickerModule, MdNativeDateModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatDatepickerModule, MatNativeDateModule,
     RouterModule.forRoot(routes),
     InMemoryWebApiModule.forRoot(InMemoryDataService, {passThruUnknownUrl: true}),
   ],

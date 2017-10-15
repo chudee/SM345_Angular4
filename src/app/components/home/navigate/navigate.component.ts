@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class NavigateComponent implements OnInit {
 
   links = [
-    { route: '/dashboard', title: '대시보스', icon: 'dashboard' },
+    { route: '/dashboard', title: '대시보스', icon: 'dashboard'},
     { route: '/manual', title: '설명소개서', icon: 'info' },
     { route: '/notices', title: '공지사항', icon: 'help' },
     { route: '/mentorings', title: '멘토방', icon: 'group_work' },
@@ -21,5 +21,4 @@ export class NavigateComponent implements OnInit {
   ngOnInit() {
 
   }
-
 }

@@ -1,35 +1,35 @@
 <div class="admin-container">
-  <md-tab-group
+  <mat-tab-group
     [dynamicHeight]="true"
     (focusChange)="selectedTab($event)"
   >
-    <md-tab label="사용자 목록">
+    <mat-tab label="사용자 목록">
       <router-outlet name="user"></router-outlet>
-    </md-tab>
+    </mat-tab>
 
-    <md-tab label="보고서 목록">
+    <mat-tab label="보고서 목록">
       <router-outlet name="report"></router-outlet>
-    </md-tab>
+    </mat-tab>
 
-    <md-tab label="멘토방 설정">
+    <mat-tab label="멘토방 설정">
       <router-outlet name="mentoring-setting"></router-outlet>
-    </md-tab>
+    </mat-tab>
 
-    <md-tab label="멘토방 목록">
+    <mat-tab label="멘토방 목록">
       <router-outlet name="mentoring-list"></router-outlet>
-    </md-tab>
+    </mat-tab>
 
-    <md-tab label="설문조사 설정">
+    <mat-tab label="설문조사 설정">
       <router-outlet name="survey-setting"></router-outlet>
-    </md-tab>
+    </mat-tab>
 
-    <md-tab label="설문조사 결과">
+    <mat-tab label="설문조사 결과">
       <router-outlet name="survey-result"></router-outlet>
-    </md-tab>
+    </mat-tab>
 
-    <md-tab label="신입생 엑셀 등록">
+    <mat-tab label="신입생 엑셀 등록">
       <router-outlet name="excel"></router-outlet>
-    </md-tab>
-  </md-tab-group>
+    </mat-tab>
+  </mat-tab-group>
 
 </div>

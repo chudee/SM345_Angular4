@@ -1,133 +1,133 @@
 
 <div class="mentoring-container">
-  <md-card>
-    <md-card-header>
-      <md-card-title> 멘토 기간 설정 </md-card-title>
-    </md-card-header>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title> 멘토 기간 설정 </mat-card-title>
+    </mat-card-header>
 
-    <md-card-content class="date-content">
+    <mat-card-content class="date-content">
 
-      <md-form-field class="date-item">
-        <input mdInput [mdDatepicker]="mentorStartPicker" placeholder="시작 기간 설정" 
+      <mat-form-field class="date-item">
+        <input matInput [matDatepicker]="mentorStartPicker" placeholder="시작 기간 설정" 
           [value]="initMentorStartDate()" 
           (dateChange)="changeMentorStartDate($event)"
         >
-        <md-datepicker-toggle mdSuffix [for]="mentorStartPicker"></md-datepicker-toggle>
-        <md-datepicker #mentorStartPicker></md-datepicker>
-      </md-form-field>
+        <mat-datepicker-toggle matSuffix [for]="mentorStartPicker"></mat-datepicker-toggle>
+        <mat-datepicker #mentorStartPicker></mat-datepicker>
+      </mat-form-field>
 
-      <md-form-field class="date-item">
-        <input mdInput [mdDatepicker]="mentorEndPicker" placeholder="종료 기간 설정" 
+      <mat-form-field class="date-item">
+        <input matInput [matDatepicker]="mentorEndPicker" placeholder="종료 기간 설정" 
           [value]="initMentorEndDate()" 
           (dateChange)="changeMentorEndDate($event)"
         >
-        <md-datepicker-toggle mdSuffix [for]="mentorEndPicker"></md-datepicker-toggle>
-        <md-datepicker #mentorEndPicker></md-datepicker>
-      </md-form-field>
-    </md-card-content>
+        <mat-datepicker-toggle matSuffix [for]="mentorEndPicker"></mat-datepicker-toggle>
+        <mat-datepicker #mentorEndPicker></mat-datepicker>
+      </mat-form-field>
+    </mat-card-content>
 
     
-  </md-card>
+  </mat-card>
 
-  <md-card>
-    <md-card-header>
-      <md-card-title> 멘티 기간 설정 </md-card-title>
-    </md-card-header>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title> 멘티 기간 설정 </mat-card-title>
+    </mat-card-header>
 
-    <md-card-content class="date-content">
-      <md-form-field class="date-item">
-        <input mdInput [mdDatepicker]="menteeStartPicker" placeholder="시작 기간 설정"
+    <mat-card-content class="date-content">
+      <mat-form-field class="date-item">
+        <input matInput [matDatepicker]="menteeStartPicker" placeholder="시작 기간 설정"
           [value]="initMenteeStartDate()"
           (dateChange)="changeMenteeStartDate($event)"
         >
-        <md-datepicker-toggle mdSuffix [for]="menteeStartPicker"></md-datepicker-toggle>
-        <md-datepicker #menteeStartPicker></md-datepicker>
-      </md-form-field>
-      <md-form-field class="date-item">
-        <input mdInput [mdDatepicker]="menteeEndPicker" placeholder="종료 기간 설정"
+        <mat-datepicker-toggle matSuffix [for]="menteeStartPicker"></mat-datepicker-toggle>
+        <mat-datepicker #menteeStartPicker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field class="date-item">
+        <input matInput [matDatepicker]="menteeEndPicker" placeholder="종료 기간 설정"
           [value]="initMenteeEndDate()"
           (dateChange)="changeMenteeEndDate($event)"
         >
-        <md-datepicker-toggle mdSuffix [for]="menteeEndPicker"></md-datepicker-toggle>
-        <md-datepicker #menteeEndPicker></md-datepicker>
-      </md-form-field>
-    </md-card-content>
-  </md-card>
+        <mat-datepicker-toggle matSuffix [for]="menteeEndPicker"></mat-datepicker-toggle>
+        <mat-datepicker #menteeEndPicker></mat-datepicker>
+      </mat-form-field>
+    </mat-card-content>
+  </mat-card>
 
-  <md-card>
-      <md-card-header>
-        <md-card-title> 최대 멘토인원 </md-card-title>
-      </md-card-header>
+  <mat-card>
+      <mat-card-header>
+        <mat-card-title> 최대 멘토인원 </mat-card-title>
+      </mat-card-header>
       
-      <md-card-content>
-        <md-select md-select-trigger
+      <mat-card-content>
+        <mat-select mat-select-trigger
           placeholder="인원"
           [value]="initMentorNumber()"
           (change)="changeMentorNumber($event)"
         >
-          <md-option *ngFor="let mentor of mentorNumbers" [value]="mentor.number">
+          <mat-option *ngFor="let mentor of mentorNumbers" [value]="mentor.number">
             {{ mentor.text }}
-          </md-option>
-        </md-select>
-      </md-card-content>
-    </md-card>
+          </mat-option>
+        </mat-select>
+      </mat-card-content>
+    </mat-card>
 
-    <md-card>
-        <md-card-header>
-          <md-card-title> 최대 멘티인원 </md-card-title>
-        </md-card-header>
+    <mat-card>
+        <mat-card-header>
+          <mat-card-title> 최대 멘티인원 </mat-card-title>
+        </mat-card-header>
         
-        <md-card-content>
-          <md-select md-select-trigger
+        <mat-card-content>
+          <mat-select mat-select-trigger
             placeholder="인원"
             [value]="initMenteeNumber()"
             (change)="changeMenteeNumber($event)"
           >
-            <md-option *ngFor="let mentee of menteeNumbers" [value]="mentee.number">
+            <mat-option *ngFor="let mentee of menteeNumbers" [value]="mentee.number">
               {{ mentee.text }}
-            </md-option>
-          </md-select>
-        </md-card-content>
-      </md-card>
+            </mat-option>
+          </mat-select>
+        </mat-card-content>
+      </mat-card>
   
-  <md-card>
-    <md-card-header>
-      <md-card-title> 모임 기간 설정 </md-card-title>
-    </md-card-header>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title> 모임 기간 설정 </mat-card-title>
+    </mat-card-header>
     
-    <md-card-content>
-      <md-select md-select-trigger
+    <mat-card-content>
+      <mat-select mat-select-trigger
         placeholder="기간"
         [value]="initPeriod()"
         (change)="changePeriod($event)"
       >
-        <md-option *ngFor="let period of mettingPeriods" [value]="period.date">
+        <mat-option *ngFor="let period of mettingPeriods" [value]="period.date">
           {{ period.text }}
-        </md-option>
-      </md-select>
-    </md-card-content>
-  </md-card>
+        </mat-option>
+      </mat-select>
+    </mat-card-content>
+  </mat-card>
 
-  <md-card>
-    <md-card-header>
-      <md-card-title> 모임 횟수 설정 </md-card-title>
-    </md-card-header>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title> 모임 횟수 설정 </mat-card-title>
+    </mat-card-header>
     
-    <md-card-content>
-      <md-select md-select-trigger
+    <mat-card-content>
+      <mat-select mat-select-trigger
         placeholder="횟수"
         [value]="initCount()"
         (change)="changeCount($event)"
       >
-        <md-option *ngFor="let number of mettingNumbers" [value]="number.number">
+        <mat-option *ngFor="let number of mettingNumbers" [value]="number.number">
           {{ number.text }}
-        </md-option>
-      </md-select>
-    </md-card-content>
-  </md-card>
+        </mat-option>
+      </mat-select>
+    </mat-card-content>
+  </mat-card>
 
   
-    <button md-raised-button color="primary" (click)="save()" class="save">
+    <button mat-raised-button color="primary" (click)="save()" class="save">
       SAVE
     </button>
  

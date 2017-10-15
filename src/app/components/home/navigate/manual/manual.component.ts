@@ -12,7 +12,7 @@ import { TestService } from '../../../../services/test/test.service';
 export class ManualComponent implements OnInit {
   manuals: Manual[];
   step = 0;
-  
+  loading: boolean = false;
   
   constructor(
     private router: Router,
@@ -36,9 +36,13 @@ export class ManualComponent implements OnInit {
   }
   
   getManuals() {
+    this.loading = true;
     this.testService
         .getManuals()
-        .then(manuals => this.manuals = manuals)
+        .then(manuals => {
+          this.loading = false;
+          this.manuals = manuals;
+        })
   }
 
 }

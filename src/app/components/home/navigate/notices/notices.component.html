@@ -3,7 +3,7 @@
 </h1>
 
 <div class="table-container mat-elevation-z8">
-    <md-toolbar [color]="selectedNotices.length === 0 ? 'primary' : 'accent'">
+    <mat-toolbar [color]="selectedNotices.length === 0 ? 'primary' : 'accent'">
         <span *ngIf="selectedNotices.length === 0"> 공지사항 </span>
         <span *ngIf="selectedNotices.length !== 0"> {{ selectedNotices.length }} selected </span>
   
@@ -11,63 +11,63 @@
   
         <!-- 생성 버튼 -->
         <button 
-          md-icon-button
+          mat-icon-button
           *ngIf="selectedNotices.length === 0"
         >
-          <md-icon>add</md-icon>
+          <mat-icon>add</mat-icon>
         </button>
   
         <!-- 수정 버튼 -->
         <button 
-          md-icon-button
+          mat-icon-button
           *ngIf="selectedNotices.length === 1"
         >
-          <md-icon>edit</md-icon>
+          <mat-icon>edit</mat-icon>
         </button>
   
         <!-- 삭제 버튼 -->
         <button 
-          md-icon-button
+          mat-icon-button
           *ngIf="selectedNotices.length !== 0"
         >
-          <md-icon>delete</md-icon>
+          <mat-icon>delete</mat-icon>
         </button>
-    </md-toolbar>
+    </mat-toolbar>
 
-  <md-table #table [dataSource]="dataSource">
+  <mat-table #table [dataSource]="dataSource">
 
-    <ng-container mdColumnDef="selected">
-      <md-header-cell *mdHeaderCellDef class="checkbox"> 
-        <md-checkbox
+    <ng-container matColumnDef="selected">
+      <mat-header-cell *matHeaderCellDef class="checkbox"> 
+        <mat-checkbox
           [indeterminate]="selectedNotices.length > 0 && selectedNotices.length < 13"
           [checked]="selectedNotices.length === 13"
           (change)="selectAllClick(notices, selectedNotices.length)"
-        ></md-checkbox>   
-      </md-header-cell>
-      <md-cell *mdCellDef="let element" class="checkbox"> 
-        <md-checkbox
+        ></mat-checkbox>   
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element" class="checkbox"> 
+        <mat-checkbox
           [checked]="isSelected(element)"
           (change)="selectClick(element);"
-        ></md-checkbox> 
-      </md-cell>
+        ></mat-checkbox> 
+      </mat-cell>
     </ng-container>
 
-    <ng-container mdColumnDef="id">
-      <md-header-cell *mdHeaderCellDef class="id"> ID </md-header-cell>
-      <md-cell *mdCellDef="let element" class="id"> {{element.id}} </md-cell>
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef class="id"> ID </mat-header-cell>
+      <mat-cell *matCellDef="let element" class="id"> {{element.id}} </mat-cell>
     </ng-container>
 
-    <ng-container mdColumnDef="title">
-      <md-header-cell *mdHeaderCellDef class="title"> 제목 </md-header-cell>
-      <md-cell *mdCellDef="let element" class="title"> {{element.title}} </md-cell>
+    <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef class="title"> 제목 </mat-header-cell>
+      <mat-cell *matCellDef="let element" class="title"> {{element.title}} </mat-cell>
     </ng-container>
 
-    <ng-container mdColumnDef="date">
-      <md-header-cell *mdHeaderCellDef class="date"> 날짜 </md-header-cell>
-      <md-cell *mdCellDef="let element" class="date"> {{element.date}} </md-cell>
+    <ng-container matColumnDef="date">
+      <mat-header-cell *matHeaderCellDef class="date"> 날짜 </mat-header-cell>
+      <mat-cell *matCellDef="let element" class="date"> {{element.date}} </mat-cell>
     </ng-container>
 
-    <md-header-row *mdHeaderRowDef="displayedColumns" class="row"></md-header-row>
-    <md-row *mdRowDef="let row; columns: displayedColumns;"></md-row>
-  </md-table>
+    <mat-header-row *matHeaderRowDef="displayedColumns" class="row"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
 </div>

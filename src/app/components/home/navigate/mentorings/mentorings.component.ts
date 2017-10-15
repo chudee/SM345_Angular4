@@ -15,6 +15,7 @@ export class MentoringsComponent implements OnInit {
   mentorings: Mentoring[];
   selectedMentoring: Mentoring;
   setting: AdminMentoringSetting;
+  loading: boolean = false;
 
   constructor(
     private router: Router,
@@ -29,9 +30,13 @@ export class MentoringsComponent implements OnInit {
   }
 
   getMentorings(): void {
+    this.loading = true;
     this.testService
         .getMentorings()
-        .then(mentorings => this.mentorings = mentorings)
+        .then(mentorings => {
+          this.loading = false;
+          this.mentorings = mentorings;
+        })
   }
 
   getMentoringSetting(): void {

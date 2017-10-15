@@ -14,6 +14,7 @@ export class MentoringDetailsComponent implements OnInit {
   id: number;
   mentoring: Mentoring;
   private mantoringUrl = 'api/mentorings'
+  loading: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,9 +24,13 @@ export class MentoringDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loading = true;
     this.route.paramMap
     .switchMap((params: ParamMap) => this.testService.getMentoring(+params.get('id')))
-    .subscribe(mentoring => this.mentoring = mentoring);
+    .subscribe(mentoring => {
+      this.loading = false;
+      this.mentoring = mentoring;
+    });
   }
   reports = [
     {

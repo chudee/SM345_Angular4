@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
+import { FormBuilder, FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
 
 import { LoginService } from '../../services/login.service'
 
@@ -9,29 +10,34 @@ import { LoginService } from '../../services/login.service'
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  model: any = {}
-  loading = false
-  error = ''
-
+  id: string = '';
+  password: string = '';
+  loading: boolean = false;
+  error: string = '';
+  hide: boolean = true;
+  
   constructor(
     private router: Router,
-    private loginService: LoginService
-  ) { }
+    private loginService: LoginService,
+  ) {}
 
   ngOnInit() {
-    this.loginService.logout()
+    this.loginService.logout();
   }
 
-  login() {
-    this.loading = true
-    this.loginService.login(this.model.id, this.model.password)
-      .subscribe(result => {
-        if(result === true) this.router.navigate(['/'])
-        else {
-          this.error = 'Id or password is incorrect';
+  onSubmit(f: NgForm) {
+    console.log(f.form)
+    this.loading = true;
+    this.loginService.login(f.form.value.id, f.form.value.password)
+        .then(result => this.router.navigate(['/']))
+        .catch(e => {
+          console.log(e);
           this.loading = false;
-        }
-      })
-  }
+          this.getErrorMessage();
+        })
+  };
 
+  getErrorMessage() {
+    return this.error = '일치하지 않는 아이디 혹은 비밀번호 입니다.';
+  }
 }

@@ -1,7 +1,7 @@
-<md-sidenav-container class="sidenav-container">
+<mat-sidenav-container class="sidenav-container">
     
   <!-- Side Navigation -->
-  <md-sidenav 
+  <mat-sidenav 
     #sidenav 
     mode="side"
     opened="true"
@@ -11,22 +11,23 @@
     <app-user></app-user>
 
     <!-- NavigateComponent -->
-    <md-list>
-      <md-list-item class="list-item" *ngFor="let link of links">
-        <a md-button [routerLink]="link.route" routerLinkActive="active-link" class="link">
-          <md-icon class="icon"> {{ link.icon }} </md-icon> 
+    <mat-list>
+      <mat-list-item class="list-item" *ngFor="let link of links">
+          <a mat-button [routerLink]="link.route" routerLinkActive="active-link" class="link">
+          <!-- <a mat-button (click)="onNavigate(link.route)" class="link"> -->
+          <mat-icon class="icon"> {{ link.icon }} </mat-icon> 
           <span class="text"> {{ link.title }} </span>
         </a>
-      </md-list-item>
-    </md-list>
+      </mat-list-item>
+    </mat-list>
 
-  </md-sidenav>
+  </mat-sidenav>
 
   <!-- Header -->
   <div class="sidenav-header">
     <!-- Sice Nav Button -->
-    <button md-icon-button class="sidenav-header-button" (click)="sidenav.toggle()"> 
-      <md-icon class="md-24" aria-label="Example icon-button with a heart icon">menu</md-icon>
+    <button mat-icon-button class="sidenav-header-button" (click)="sidenav.toggle()"> 
+      <mat-icon class="mat-24" aria-label="Example icon-button with a heart icon">menu</mat-icon>
     </button>
 
     <!-- Header Components -->
@@ -38,4 +39,4 @@
     <router-outlet></router-outlet>
   </div>
 
-</md-sidenav-container>
+</mat-sidenav-container>
