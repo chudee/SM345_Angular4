@@ -9,7 +9,7 @@ import { Login } from '../interfaces/login';
 @Injectable()
 export class LoginService {
   public token: string;
-  private loginUrl = 'http://220.230.112.31:3000/api/auth/login';
+  private loginUrl = 'https://www.chudee.world/api/auth/login';
   
   constructor(private http: Http) {
       // set token if saved in local storage
