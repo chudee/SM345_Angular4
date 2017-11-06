@@ -43,3 +43,8 @@
     float: right;
     margin-right: 8px;
 }
+
+.create-btn {
+    width: 100%;
+    margin: 50px 0px;
+}

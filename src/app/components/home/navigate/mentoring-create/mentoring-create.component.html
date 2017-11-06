@@ -1,0 +1,51 @@
+<div class="mentoring-container">
+  <mat-card>
+    <mat-card-content>
+      <img mat-card-image 
+        [src]="img ? img : 'assets/no-image.png'" 
+        (click)="imgInput.click()"
+        class="img" 
+        alt="mentoring-cover">
+      <input type="file" #imgInput accept="image/*" 
+        placeholder="Upload img file..." />
+      <hr />
+      <table class="form" cellspacing="0"><tr>
+        <tr>
+          <h3>멘토</h3>
+          <mat-form-field class="full-width">
+            <input matInput placeholder="멘토명을 입력해 주세요" required>
+          </mat-form-field>
+        </tr>
+        <tr>
+          <h3>팀명</h3>
+          <mat-form-field class="full-width">
+            <input matInput placeholder="팀명을 입력해 주세요" required>
+          </mat-form-field>
+        </tr>
+        <tr>
+          <h3>주제</h3>
+          <mat-form-field class="full-width">
+            <input matInput placeholder="주제를 입력해 주세요" required>
+          </mat-form-field>
+        </tr>
+        <br />
+        
+        <h3 style="display: inline-block;">자격증명파일</h3>
+        <button mat-button color="primary" (click)="fileInput.click()">UPLOAD</button>
+        <input type="file" id="file" #fileInput placeholder="Upload file..." />
+        <hr />
+
+        <h3>팀 소개 및 설명</h3>
+          <mat-form-field class="full-width">
+            <textarea matInput placeholder="팀 소개 및 설명을 입력해 주세요" required></textarea>
+          </mat-form-field>
+
+        </table>
+        <mat-list>
+          <mat-list-item>
+            <button mat-raised-button color="primary" class="button">멘토방 신청</button>
+          </mat-list-item>
+        </mat-list>
+    </mat-card-content>
+  </mat-card>
+</div>

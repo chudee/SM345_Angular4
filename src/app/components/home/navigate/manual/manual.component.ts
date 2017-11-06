@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { Manual } from '../../../../interfaces/manual';
 import { TestService } from '../../../../services/test/test.service';
+import { ListService } from '../../../../services/spring-service/list/list.service';
  
 @Component({
   selector: 'app-manual',
@@ -16,7 +17,8 @@ export class ManualComponent implements OnInit {
   
   constructor(
     private router: Router,
-    private testService: TestService
+    private testService: TestService,
+    private listService: ListService
   ) { }
   
   ngOnInit() {
@@ -37,12 +39,22 @@ export class ManualComponent implements OnInit {
   
   getManuals() {
     this.loading = true;
-    this.testService
+    this.listService
         .getManuals()
         .then(manuals => {
           this.loading = false;
           this.manuals = manuals;
         })
   }
+
+  // getManuals() {
+  //   this.loading = true;
+  //   this.testService
+  //       .getManuals()
+  //       .then(manuals => {
+  //         this.loading = false;
+  //         this.manuals = manuals;
+  //       })
+  // }
 
 }
