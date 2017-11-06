@@ -10,6 +10,7 @@ import { Login } from '../interfaces/login';
 export class LoginService {
   public token: string;
   private loginUrl = 'https://www.chudee.world/api/auth/login';
+  private checkUrl = 'https://www.chudee.world/api/auth/check';
   
   constructor(private http: Http) {
       // set token if saved in local storage
@@ -17,7 +18,6 @@ export class LoginService {
       this.token = currentUser && currentUser.token;
   }
 
-//   login(id: string, password: string): Observable<boolean> {
   login(id: string, password: string): Promise<boolean> {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -27,41 +27,36 @@ export class LoginService {
             {headers: headers}
         )
         .toPromise()
-        .then( (response: Response) => { 
+        // async & await
+        .then( async (response: Response) => { 
             let token = response.json() && response.json().token
             if (token) {
                 // set token property
                 this.token = token;
-
+              
+                const checked = await this.check(this.token).then(res => {
+                  return res.json().info
+                })
                 // store id and jwt token in local storage to keep user logged in between page refreshes
-                localStorage.setItem('currentUser', JSON.stringify({ id: id, token: token }));
-
+                localStorage.setItem('currentUser', JSON.stringify({ user_name: checked.user_name, user_id: checked.user_id, token: token }));        
+            
                 // return true to indicate successful login
                 return true;
             } else {
                 // return false to indicate failed login
                 return false;
             }
-        })
+          })
         .catch(this.handleError)
-        // .map((response: Response) => {
-        //     console.log(response)
-        //     // login successful if there's a jwt token in the response
-        //     let token = response.json() && response.json().token;
-        //     if (token) {
-        //         // set token property
-        //         this.token = token;
+  }
 
-        //         // store id and jwt token in local storage to keep user logged in between page refreshes
-        //         localStorage.setItem('currentUser', JSON.stringify({ id: id, token: token }));
-
-        //         // return true to indicate successful login
-        //         return true;
-        //     } else {
-        //         // return false to indicate failed login
-        //         return false;
-        //     }
-        
+  check(token: string): Promise<any> {
+    const headers = new Headers();
+    headers.append('x-access-token', token);
+    return this.http.get(
+      this.checkUrl,
+      {headers: headers}
+    ).toPromise()
   }
 
   logout(): void {

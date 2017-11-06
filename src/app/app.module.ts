@@ -8,6 +8,7 @@ import { TestService } from './services/test/test.service';
 import { AdminUserService } from './services/admin-user/admin-user.service';
 import { AdminMentoringService } from './services/admin-mentoring/admin-mentoring.service';
 import { LoginService } from './services/login.service';
+import { ListService } from './services/spring-service/list/list.service';
 
 import { AppComponent } from './components/app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -32,6 +33,7 @@ import { AdminMentoringListComponent } from './components/home/navigate/admin/ad
 import { AdminSurveySettingComponent } from './components/home/navigate/admin/admin-survey-setting/admin-survey-setting.component';
 import { AdminSurveyResultComponent } from './components/home/navigate/admin/admin-survey-result/admin-survey-result.component';
 import { AdminExcelComponent } from './components/home/navigate/admin/admin-excel/admin-excel.component';
+import { MentoringCreateComponent } from './components/home/navigate/mentoring-create/mentoring-create.component';
 
 // Imports for loading & configuring the in-memory web api
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -54,7 +56,6 @@ import {
   MatDatepickerModule, MatNativeDateModule,
 } from '@angular/material';
 
-
 const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: '', component: HomeComponent, canActivate: [AuthGuard],
@@ -64,6 +65,7 @@ const routes: Routes = [
       { path: 'manual', component: ManualComponent },
       { path: 'notices', component: NoticesComponent },
       { path: 'mentorings', component: MentoringsComponent },
+      { path: 'mentoring/create', component: MentoringCreateComponent },
       { path: 'mentorings/:id', component: MentoringDetailsComponent },
       { path: 'questions', component: QuestionsComponent },
       { 
@@ -107,6 +109,7 @@ const routes: Routes = [
     AdminSurveyResultComponent,
     AdminExcelComponent,
     LoadingComponent,
+    MentoringCreateComponent,
   ],
   imports: [
     BrowserModule,
@@ -135,6 +138,7 @@ const routes: Routes = [
     AdminUserService,
     AdminMentoringService,
     LoginService,
+    ListService,
   ],
   bootstrap: [AppComponent]
 })
